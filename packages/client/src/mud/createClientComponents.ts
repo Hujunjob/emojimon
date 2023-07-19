@@ -7,5 +7,6 @@ export function createClientComponents({ components }: SetupNetworkResult) {
   return {
     ...components,
     // TODO
+    Position:overridableComponent(components.Position)
   };
 }

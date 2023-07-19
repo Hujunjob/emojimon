@@ -31,6 +31,7 @@ export const GameMap = ({
 }: Props) => {
   const {
     network: { playerEntity },
+    systemCalls,
   } = useMUD();
 
   const rows = new Array(width).fill(0).map((_, i) => i);
@@ -85,13 +86,13 @@ export const GameMap = ({
               ) : null}
               <div className="flex flex-wrap gap-1 items-center justify-center relative">
                 {terrainEmoji ? (
-                  <div className="absolute inset-0 flex items-center justify-center text-3xl pointer-events-none">
+                  <div className="absolute inset-0 flex items-center justify-center text-2xl pointer-events-none">
                     {terrainEmoji}
                   </div>
                 ) : null}
                 <div className="relative">
                   {playersHere?.map((p) => (
-                    <span key={p.entity}>{p.emoji}</span>
+                    <span className="text-2xl" key={p.entity}>{p.emoji}</span>
                   ))}
                 </div>
               </div>

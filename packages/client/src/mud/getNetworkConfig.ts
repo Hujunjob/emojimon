@@ -13,10 +13,15 @@ type NetworkConfig = SetupContractConfig & {
 
 export async function getNetworkConfig(): Promise<NetworkConfig> {
   const params = new URLSearchParams(window.location.search);
-
-  const chainId = Number(
-    params.get("chainId") || import.meta.env.VITE_CHAIN_ID || 31337
-  );
+  console.log("getNetworkConfig params="+params);
+  
+  // const chainId = Number(
+  //   params.get("chainId") || import.meta.env.VITE_CHAIN_ID || 31337
+  // );
+  var chainId = 4242;
+  // chainId = 31337;
+  console.log("getNetworkConfig chainid="+chainId);
+  
   const chainIndex = supportedChains.findIndex((c) => c.id === chainId);
   const chain = supportedChains[chainIndex];
   if (!chain) {
